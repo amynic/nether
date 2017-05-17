@@ -29,21 +29,11 @@
     <Script Include="locations-dailyCount-medianCoords.usql" />
     <Script Include="locations-monthlyCount-medianCoords.usql" />
     <Script Include="locations-yearlyCount-medianCoords.usql" />
-    <Script Include="extract_calculate.usql" />
-    <Script Include="mau_output.usql" />
+    <Script Include="MAU.usql" />
   </ItemGroup>
   <ItemGroup>
     <ScriptCode Include="clusters.usql.cs">
       <DependentUpon>clusters.usql</DependentUpon>
-    </ScriptCode>
-    <ScriptCode Include="DAU.usql.cs">
-      <DependentUpon>DAU.usql</DependentUpon>
-    </ScriptCode>
-    <ScriptCode Include="extract_calculate.usql.cs">
-      <DependentUpon>extract_calculate.usql</DependentUpon>
-    </ScriptCode>
-    <ScriptCode Include="mau_output.usql.cs">
-      <DependentUpon>mau_output.usql</DependentUpon>
     </ScriptCode>
   </ItemGroup>
   <Import Project="$(AppData)\Microsoft\DataLake\MsBuild\1.0\Usql.targets" />
