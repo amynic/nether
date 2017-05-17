@@ -1,0 +1,30 @@
+﻿//PURPOSE: A USQL job to compute the Daily Active Users (DAUs) of the game 
+// RECOMMENDED: run transactional eventdata daily
+
+
+//Declare input/output destinations as variables
+DECLARE @in  string = "/NetherTestData/{*}.csv";
+DECLARE @out string = "/NetherTestData/Result/DAU.csv";
+ 
+//Extract data to query from all CSV files in NetherTestData to compute DAU's
+//Schema needed: Unqiue user ID and Event Date in ISO format
+@result =
+    EXTRACT uID string,
+            eventDate DateTime 
+    FROM @in
+    USING Extractors.Csv();
+
+// Take data and count distinct user IDs. Aggregate the query by full date (per day)
+@calculation =
+    SELECT
+        eventDate,
+        COUNT(DISTINCT(uID)) AS activeusers
+    FROM @result
+    GROUP BY eventDate;
+
+// Output the aggregated DAU results to output file specified above
+OUTPUT @calculation
+    TO @out
+    USING Outputters.Csv();
+
+
