@@ -10,6 +10,7 @@
     <Name>Nether.Analytics.ADLA</Name>
     <RootNamespace>Nether.Analytics.ADLA</RootNamespace>
     <RuntimeVersion>default</RuntimeVersion>
+    <OutputStreamPath>C:\Users\amynic\AppData\Local\USQLDataRoot</OutputStreamPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Script Include="clusters.usql" />
+    <Script Include="DAU.usql" />
     <Script Include="locations-dailyCount-medianCoords.usql" />
     <Script Include="locations-monthlyCount-medianCoords.usql" />
     <Script Include="locations-yearlyCount-medianCoords.usql" />
