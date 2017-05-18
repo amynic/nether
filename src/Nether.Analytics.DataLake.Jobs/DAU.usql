@@ -3,8 +3,13 @@
 
 
 //Declare input/output destinations as variables
+<<<<<<< HEAD
 DECLARE @in  string = "/nether/dau/session-start/{date:yyyy}/{date:mm}/{date:dd}/{*}.csv";
 DECLARE @out string = "/nether/dau/results/DAU.csv";
+=======
+DECLARE @in  string = "/NetherTestData/USQLDataRoot/nether/dau/session-start/{date:yyyy}/{date:mm}/{date:dd}/{*}.csv";
+DECLARE @out string = "/NetherTestData/Result/DAU.csv";
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
  
 //Extract data to query from all CSV files in NetherTestData to compute DAU's
 //Schema needed: Unqiue user ID and Event Date in ISO format
@@ -12,12 +17,19 @@ DECLARE @out string = "/nether/dau/results/DAU.csv";
     EXTRACT transactionID   string,
             messageType string,
             version string,
+<<<<<<< HEAD
             session string,
+=======
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
             eventDate DateTime, 
             uID string,
             date    DateTime //virtual column
     FROM @in
+<<<<<<< HEAD
     USING Extractors.Csv(skipFirstNRows: 1);
+=======
+    USING Extractors.Csv();
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
 
 // Take data and count distinct user IDs. Aggregate the query by full date (per day)
 @calculation =

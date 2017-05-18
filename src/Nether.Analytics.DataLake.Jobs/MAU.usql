@@ -2,8 +2,13 @@
 // RECOMMENDED: run transactional eventdata monthly
 
 //Declare input/output destinations as variables
+<<<<<<< HEAD
 DECLARE @in  string = "/nether/mau/session-start/{date:yyyy}/{date:mm}/{date:dd}/{*}.csv";
 DECLARE @out string = "/nether/mau/result/MAU.csv";
+=======
+DECLARE @in  string = "/NetherTestData/USQLDataRoot/nether/mau/session-start/{date:yyyy}/{date:mm}/{date:dd}/{*}.csv";
+DECLARE @out string = "/NetherTestData/Result/MAU.csv";
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
  
  //Extract data to query from all CSV files in NetherTestData to compute MAU's
  //Schema needed: Unqiue user ID and Event Date in ISO format
@@ -12,12 +17,19 @@ DECLARE @out string = "/nether/mau/result/MAU.csv";
     EXTRACT transactionID   string,
             messageType string,
             version string,
+<<<<<<< HEAD
             session string,
+=======
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
             eventDate DateTime, 
             uID string,
             date    DateTime //virtual column    
     FROM @in
+<<<<<<< HEAD
     USING Extractors.Csv(skipFirstNRows: 1);
+=======
+    USING Extractors.Csv();
+>>>>>>> a3648c6379e16fecec9f3f1d73209d58a30adb96
 
 // Take data, extract the month from the eventDate and count the user IDs. Aggregate the query by Month
 @calculation =
