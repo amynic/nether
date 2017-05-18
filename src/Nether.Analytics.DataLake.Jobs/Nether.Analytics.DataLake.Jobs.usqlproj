@@ -21,10 +21,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Script Include="clusters.usql" />
-<<<<<<< HEAD
     <Script Include="geoclustering.usql" />
-=======
->>>>>>> 06205bfc95ed8d5dd9db5f24aa80442a77deee6d
     <Script Include="DAU.usql" />
     <Script Include="locations-dailyCount-medianCoords.usql" />
     <Script Include="locations-monthlyCount-medianCoords.usql" />
